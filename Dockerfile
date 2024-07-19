@@ -1,10 +1,10 @@
-# use another docker file - python 3
+# Use the official Python 3 image from the Docker Hub
 FROM python:3
-# get everthing in this application and store in follwing container  
+# Copy the current directory contents into the container at /usr/src/app
 COPY .  /usr/src/app
-# go into the following directory
+# Set the working directory in the container
 WORKDIR /usr/src/app
-# install all needed addons
+# Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
-# run the follwing commands
+# Run manage.py when the container launches
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

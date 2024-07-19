@@ -1,0 +1,19 @@
+version: '3'
+
+# the different services that are part of app
+# each service is in its own container
+services:
+    # first container called db
+    db:
+        image: postgres
+
+    # second container called web
+    web:
+        # Use the Dockerfile within the current directory.
+        build: .
+        # Use the specified path within the container.
+        volumes:
+            - .:/usr/src/app
+        # Link port 8000 within the container to port 8000 on our computer.
+        ports:
+            - "8000:8000"
