@@ -1,5 +1,3 @@
-version: '3'
-
 # the different services that are part of app
 # each service is in its own container
 services:
