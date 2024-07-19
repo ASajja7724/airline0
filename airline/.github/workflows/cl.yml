@@ -1,0 +1,16 @@
+name: Testing # workflow name
+# when should this workflow run
+# this will run when something is pushed to the repository
+on: push
+
+# what will happen after if being pushed
+jobs:
+  test_project:
+    runs-on: ubuntu-latest 
+    # will be run on the latest version of ubuntu ona virtual machine
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Django unit tests
+      run: | # this will run the test ater downloading django 
+        pip3 install --user django
+        python3 manage.py test
